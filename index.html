@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
-
 <head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/jquery.countdown-2.0.4/jquery.countdown.min.js"></script>
     <style>
@@ -9,18 +9,31 @@
             background-color: black;
             color: white;
         }
+        #container {
+            width: 100%;
+            position: relative;
+        }
+        .item {
+            float: left;
+            position: relative;
+            display: inline-block;
+            line-height: 0;
+            height: 300px;
+            width: 300px;
+        }
         div.msg {
             text-align: center;
-            top: 30%;
-            width: 100%;
-            position: absolute;
-            font-size:35px;
+            font-size: 25px;
+            height: 199px;
+            width: 300px;
+            margin-top: 8%;
+            float: left;
         }
         div#clock {
-            font-size: 3em;
+            font-size: 2em;
         }
         div.dte {
-            font-size:15px;
+            font-size: 15px;
         }
     </style>
     <script>
@@ -38,17 +51,55 @@
                     format = '%-w week%!w ' + format;
                 }
                 $(this).html(event.strftime(format));
-            });
+            }).on('finish.countdown', function(event)
+            {
+                $('.msg span').hide();
+                $(this).html('2 * JP >= Dad!').parent().addClass('disabled')
+            });;
         });
     </script>
 </head>
 
 <body>
-    <div class="msg">
-        2*JP == Dad
-        <div id="clock"></div>
-        <div class="dte">
-            1/25/2015 4:30 am CST
+    <div id="container">
+        <div class="item" style="background:url(/img/85.jpg); background-size: cover;">
+        </div>
+        <div class="item" style="background:url(/img/blanca.jpg); background-size: cover;">
+        </div>
+        <div class="item" style="background:url(/img/hair-84.jpg); background-size: cover;">
+        </div>
+        <div class="item" style="background:url(/img/jpface.jpg); background-size: cover;">
+        </div>
+        <div class="item" style="background:url(/img/home-pc.jpg); background-size: cover;">
+        </div>
+        <div class="msg">
+            <span>2*JP == Dad</span>
+            <div id="clock"></div>
+            <div class="dte">
+                1/25/2015 4:30 am CST
+            </div>
+        </div>
+        <div class="item" style="background:url(/img/jpfam.jpg); background-size: cover;">
+        </div>
+        <div class="item" style="background:url(/img/hw-1982.jpg); background-size: cover;">
+        </div>
+        <div class="item" style="background:url(/img/jpjump.jpg); background-size: cover;">
+        </div>
+        <div class="item" style="background:url(/img/jpgoof.jpg); background-size: cover;">
+        </div>
+        <div class="item" style="background:url(/img/nyc-1984-7.jpg); background-size: cover;">
+        </div>
+        <div class="item" style="background:url(/img/jphuh.jpg); background-size: cover;">
+        </div>
+        <div class="item" style="background:url(/img/jwnee.jpg); background-size: cover;">
+        </div>
+        <div class="item" style="background:url(/img/jpgrr.jpg); background-size: cover;">
+        </div>
+        <div class="item" style="background:url(/img/daddance.jpg); background-size: cover;">
+        </div>
+        <div class="item" style="background:url(/img/jpcat.jpg); background-size: cover;">
+        </div>
+        <div class="item" style="background:url(/img/30bday.jpg); background-size: cover;">
         </div>
     </div>
 </body>
