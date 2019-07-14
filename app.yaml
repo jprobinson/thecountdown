@@ -1,0 +1,19 @@
+runtime: nodejs10
+service: countdown
+
+automatic_scaling:
+  max_idle_instances: 1
+
+handlers:
+- url: /
+  static_files: index.html
+  upload: index.html
+  secure: always
+- url: /(.+)/(.+)
+  static_files: \1/\2
+  upload: (.*\.(jpg|html|ico|css|js|png|ttf|woff))
+  secure: always
+- url: /(.+)
+  static_files: \1
+  upload: (.*\.(jpg|html|ico|css|js|png|ttf|woff))
+  secure: always

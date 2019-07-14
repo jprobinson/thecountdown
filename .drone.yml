@@ -1,0 +1,13 @@
+pipeline:
+  deploy:
+    image: nytimes/drone-gae:latest
+    action: deploy
+    project: jprbnsn
+    version: "${DRONE_COMMIT}"
+    max_versions: 2
+    secrets:
+      - source: google_credentials
+        target: GAE_CREDENTIALS
+    when:
+      branch: [master]
+      event: push
